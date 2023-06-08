@@ -5,9 +5,9 @@ import { addFirehoseListener, startFirehose } from "./firehose.js";
 import config from "../../config.js";
 
 const metadata = {
-  id: "love",
-  displayName: "All you need is love",
-  description: "Every post with the word 'love' in it",
+  id: "bluesky-tech",
+  displayName: "Bluesky Tech 💻",
+  description: "Every post with the word 'Bluesky Tech' in it",
   avatar: "./assets/feed.png",
 };
 
@@ -15,7 +15,12 @@ const metadata = {
 // DB Implementation, but could be something else
 // ---------------------------------------------------------
 
-const FEED_POST_TEXT = ["love"];
+const FEED_POST_TEXT = [
+  "bluesky tech",
+  "blueskytech",
+  "#blueskytech",
+  "#bskytech",
+];
 const REDIS_FEED_KEY = `feed:${metadata.id}`;
 
 const addToFeed = (uri: string, date: string) => {
