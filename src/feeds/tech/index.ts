@@ -83,8 +83,10 @@ const init = () => {
 
     // Very simple language analysis, a real keyword search might have more here
     const words = (op.record["text"] as string).toLowerCase();
+    console.log(words);
 
     const hasFeedText = FEED_POST_TEXT.some((filter) => words.includes(filter));
+    console.log(hasFeedText);
 
     if (hasFeedText) {
       addToFeed(uri, createdAt);
