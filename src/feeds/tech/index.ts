@@ -15,12 +15,7 @@ const metadata = {
 // DB Implementation, but could be something else
 // ---------------------------------------------------------
 
-const FEED_POST_TEXT = [
-  "bluesky tech",
-  "blueskytech",
-  "#blueskytech",
-  "#bskytech",
-];
+const FEED_POST_TEXT = ["tech"];
 const REDIS_FEED_KEY = `feed:${metadata.id}`;
 
 const addToFeed = (uri: string, date: string) => {
