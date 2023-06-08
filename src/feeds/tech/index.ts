@@ -5,9 +5,9 @@ import { addFirehoseListener, startFirehose } from "./firehose.js";
 import config from "../../config.js";
 
 const metadata = {
-  id: "bluesky-tech",
-  displayName: "Bluesky Tech 💻",
-  description: "Every post with the word 'Bluesky Tech' in it",
+  id: "tech-bluesky",
+  displayName: "Tech Bluesky 💻",
+  description: "Every post with the words 'tech bluesky' or 'tech bsky' in it",
   avatar: "./assets/feed.png",
 };
 
@@ -15,7 +15,12 @@ const metadata = {
 // DB Implementation, but could be something else
 // ---------------------------------------------------------
 
-const FEED_POST_TEXT = ["tech"];
+const FEED_POST_TEXT = [
+  "tech bluesky",
+  "tech bsky",
+  "#techbluesky",
+  "#techbsky",
+];
 const REDIS_FEED_KEY = `feed:${metadata.id}`;
 
 const addToFeed = (uri: string, date: string) => {
@@ -77,7 +82,7 @@ const init = () => {
     const createdAt = op.record["createdAt"];
 
     // Very simple language analysis, a real keyword search might have more here
-    const words = (op.record["text"] as string).toLowerCase().split(" ");
+    const words = (op.record["text"] as string).toLowerCase();
 
     const hasFeedText = FEED_POST_TEXT.some((filter) => words.includes(filter));
 
