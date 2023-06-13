@@ -85,7 +85,7 @@ const init = () => {
     });
 
     const hashtag = FEED_POST_TEXT.map((x) => {
-      return "#" + x.toLowerCase().replace(/[^0-9a-z]/gi, "");
+      return "#" + x.toLowerCase().replace(/[^0-9a-z+#]/gi, "");
     });
 
     const terms = [...lowercase, ...hashtag];
