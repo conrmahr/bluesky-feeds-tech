@@ -81,7 +81,7 @@ const init = () => {
     const words = (op.record["text"] as string).toLowerCase();
 
     const lowercase = FEED_POST_TEXT.map((x) => {
-      return x.toLowerCase();
+      return x.toLowerCase() + " ";
     });
 
     const hashtag = FEED_POST_TEXT.map((x) => {
