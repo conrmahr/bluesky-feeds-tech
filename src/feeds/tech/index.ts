@@ -80,12 +80,15 @@ const init = () => {
     // Very simple language analysis, a real keyword search might have more here
     const words = (op.record["text"] as string).toLowerCase();
 
-    const terms = FEED_POST_TEXT.map((term) => {
-      const lowercase = term.toLowerCase();
-      const hashtag = "#" + term.replace(/[^0-9a-z]/gi, "").toLowerCase();
-
-      return [lowercase, hashtag];
+    const lowercase = FEED_POST_TEXT.map((x) => {
+      return x.toLowerCase();
     });
+
+    const hashtag = FEED_POST_TEXT.map((x) => {
+      return "#" + x.toLowerCase().replace(/[^0-9a-z]/gi, "");
+    });
+
+    const terms = [...lowercase, ...hashtag];
 
     const hasFeedText = terms.some((term: any) => words.includes(term));
 
