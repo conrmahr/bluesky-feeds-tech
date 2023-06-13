@@ -8,7 +8,8 @@ import config from "../../config.js";
 const metadata = {
   id: "tech-bluesky",
   displayName: "Tech Bluesky 💻",
-  description: "Every post with the words 'tech bluesky' or 'tech bsky' in it",
+  description:
+    "Every post with one https://survey.stackoverflow.co/2022 title, technology, framework, and/or platform in a keyword or hashtag.",
   avatar: "./assets/feed.png",
 };
 
