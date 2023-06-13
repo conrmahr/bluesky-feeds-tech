@@ -1,5 +1,6 @@
 import { WriteOpAction } from "@atproto/repo";
 import client from "./redis.js";
+import FEED_POST_TEXT from "./keywords.js";
 
 import { addFirehoseListener, startFirehose } from "./firehose.js";
 import config from "../../config.js";
@@ -15,12 +16,6 @@ const metadata = {
 // DB Implementation, but could be something else
 // ---------------------------------------------------------
 
-const FEED_POST_TEXT = [
-  "tech bluesky",
-  "tech bsky",
-  "#techbluesky",
-  "#techbsky",
-];
 const REDIS_FEED_KEY = `feed:${metadata.id}`;
 
 const addToFeed = (uri: string, date: string) => {
@@ -84,7 +79,14 @@ const init = () => {
     // Very simple language analysis, a real keyword search might have more here
     const words = (op.record["text"] as string).toLowerCase();
 
-    const hasFeedText = FEED_POST_TEXT.some((filter) => words.includes(filter));
+    const terms = FEED_POST_TEXT.map((term) => {
+      const lowercase = term.toLowerCase();
+      const hashtag = "#" + term.replace(/[^0-9a-z]/gi, "").toLowerCase();
+
+      return [lowercase, hashtag];
+    });
+
+    const hasFeedText = terms.some((term: any) => words.includes(term));
 
     if (hasFeedText) {
       addToFeed(uri, createdAt);
