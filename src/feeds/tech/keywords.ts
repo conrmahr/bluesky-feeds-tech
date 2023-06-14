@@ -180,17 +180,6 @@ const FEED_POST_TEXT = [
   "cerri",
   "wimi",
   "leankor",
-  "zoom",
-  "microsoft teams",
-  "slack",
-  "google chat",
-  "mattermost",
-  "rocketchat",
-  "ringcentral",
-  "symphony",
-  "wickr",
-  "unify circuit",
-  "coolfire",
 ];
 
 export default FEED_POST_TEXT;
