@@ -9,7 +9,7 @@ const metadata = {
   id: "tech-bluesky",
   displayName: "Tech Bluesky 💻",
   description:
-    "Every post with one https://survey.stackoverflow.co/2022 title, technology, framework, and/or platform in a keyword or hashtag.",
+    "Every post with one https://survey.stackoverflow.co/2023 result keyword or hashtag.",
   avatar: "./assets/feed.png",
 };
 
